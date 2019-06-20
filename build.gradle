@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.glbc'
+version '0.0.16'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    testCompile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.6.1'
+    testCompile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.25'
+}

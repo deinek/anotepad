@@ -6,8 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static objects.AnotepadObjects.*;
-
 public class HomeWork3 {
 
     WebDriver driver;

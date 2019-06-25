@@ -26,6 +26,7 @@ public class HomeWork3 {
         np.clickForgotPass();
         np.enterEmail();
         np.clickResetButton();
+        np.verification();
     }
 
     @After

@@ -29,16 +29,17 @@ public class HomeWork2 {
         driver.findElement(By.cssSelector("#btnSaveNote")).click();
         wait = new WebDriverWait(driver, 5);
 
-        String expectMessage = "You have saved your note as a Guest User. You can come back at anytime to continue editing as long as you don't delete your browser cookies. To access your notes from anywhere and never lose them, please Create a Free Account. Your existing notes will be saved into your account";
-        wait.until(ExpectedConditions.textToBe(By.cssSelector("#notification"), expectMessage));
+        String expectedMessage = "You have saved your note as a Guest User. You can come back at anytime to continue editing as long as you don't delete your browser cookies." + " To access your notes from anywhere and never lose them, please Create a Free Account. Your existing notes will be saved into your account.";
+        wait.until(ExpectedConditions.textToBe(By.cssSelector(".alert.alert-warning"), expectedMessage));
 
-        Assert.assertTrue("You have saved your note as a Guest User. You can come back at anytime to continue editing as long as you don't delete your browser cookies.",true);
 
-        driver.findElement(By.cssSelector("#delete")).click();
+        Assert.assertTrue("You have saved your note as a Guest User. You can come back at anytime to continue editing as long as you don't delete your browser cookies. To access your notes from anywhere and never lose them, please Create a Free Account. Your existing notes will be saved into your account.",true);
+
+        driver.findElement(By.cssSelector(".delete")).click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();
 
         String noNoteHere = "No note here.";
-        wait.until(ExpectedConditions.textToBe(By.cssSelector("#my_saved_notes"), noNoteHere));
+        wait.until(ExpectedConditions.textToBe(By.cssSelector(".saved_notes"), noNoteHere));
 
         Assert.assertTrue("No note here",true);
     }
@@ -48,9 +49,4 @@ public class HomeWork2 {
     {
         driver.quit();
     }
-
-
-
-
-
 }

@@ -13,7 +13,7 @@ public class AnotepadObjects {
     private static final By forgotPassword = By.cssSelector("a[href*='forgot']");
     private static final By fieldEmail = By.cssSelector("#email");
     private static final By resetPassButton = By.cssSelector("#some_name");
-    private static final By confirmationMessage = By.cssSelector(".container");
+    private static final By confirmationMessage = By.xpath(".//*/div[2]/div/p[1]");
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -63,9 +63,10 @@ public class AnotepadObjects {
     @Step
     public AnotepadObjects verification()
     {
-        Assert.assertTrue(true);
-        Assert.assertEquals("An email has been sent to you with instructions on resetting your password.",confirmationMessage);
+        String message = "An email has been sent to you with instructions on resetting your password.";
+        wait.until(ExpectedConditions.textToBe(By.cssSelector(".alert.alert-success"), message));
+
+        Assert.assertTrue("An email has been sent to you with instructions on resetting your password.",true);
         return this;
     }
-
 }
